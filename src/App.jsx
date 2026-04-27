@@ -11,13 +11,27 @@ const Navbar = () => {
   const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <nav style={{ background: "#2d6a4f", padding: "10px" }}>
-      <Link to="/" style={{ color: "white", margin: "10px" }}>INICIO</Link>
-      <Link to="/plants" style={{ color: "white", margin: "10px" }}>PLANTAS</Link>
-      <Link to="/cart" style={{ color: "white", margin: "10px" }}>
-        CARRITO 🛒 ({totalItems})
-      </Link>
+    <nav className="navbar">
+      <Link to="/">INICIO</Link>
+      <Link to="/plants">PLANTAS</Link>
+      <Link to="/cart">CARRITO 🛒 ({totalItems})</Link>
     </nav>
+  );
+};
+
+const Home = () => {
+  return (
+    <div className="home-container">
+      <div className="overlay">
+        <h1 className="home-title">PARADISE NURSERY 🌿</h1>
+        <p className="home-text">
+          Las mejores plantas para decorar tu hogar
+        </p>
+        <Link to="/plants">
+          <button className="start-button">COMENZAR</button>
+        </Link>
+      </div>
+    </div>
   );
 };
 
@@ -27,16 +41,7 @@ const App = () => {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={
-          <div style={{ textAlign: "center", marginTop: "50px" }}>
-            <h1>PARADISE NURSERY 🌿</h1>
-            <p>Las mejores plantas para tu hogar.</p>
-            <Link to="/plants">
-              <button>COMENZAR</button>
-            </Link>
-          </div>
-        } />
-
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/plants" element={<ProductList />} />
         <Route path="/cart" element={<CartItem />} />
