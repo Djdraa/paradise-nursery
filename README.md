@@ -1,20 +1,13 @@
 # PARADISE NURSERY 🌿
 
-Paradise Nursery es una aplicación web de tienda de plantas donde los usuarios pueden explorar diferentes plantas, agregarlas al carrito y gestionar sus compras.
+Aplicación web de tienda de plantas con carrito de compras.
 
-## 🚀 Características
+## Funcionalidades
+- Listado de plantas por categorías
+- Carrito dinámico
+- Redux para manejo de estado
 
-- Visualización de plantas por categorías
-- Carrito de compras dinámico
-- Actualización de cantidades
-- Cálculo automático de totales
-
-## 🛠 Tecnologías
-
+## Tecnologías
 - React
 - Redux Toolkit
-- CSS
-
-## 👨‍💻 Autor: Ricardo Alegria
-
-Proyecto académico
+- React Router
