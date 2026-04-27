@@ -1,19 +1,23 @@
 import React from "react";
 
-const AboutUs = () => {
+function AboutUs() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>PARADISE NURSERY</h1>
+    <div className="about-us-container">
+      <h1>About e-plantShopping</h1>
+
       <p>
-        En Paradise Nursery nos especializamos en ofrecer plantas de interior de alta calidad
-        para decorar y llenar de vida tu hogar.
+        Welcome to e-plantShopping, your trusted online store for beautiful
+        indoor plants. We are passionate about bringing nature closer to your
+        home by offering a wide variety of carefully selected plants.
       </p>
+
       <p>
-        Nuestra misión es conectar a las personas con la naturaleza, brindando plantas hermosas,
-        saludables y fáciles de cuidar.
+        At e-plantShopping, we believe that plants not only enhance the beauty
+        of your space but also improve your well-being. Our mission is to make
+        plant shopping easy, enjoyable, and accessible for everyone.
       </p>
     </div>
   );
-};
+}
 
 export default AboutUs;
