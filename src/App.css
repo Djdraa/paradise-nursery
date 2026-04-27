@@ -1,49 +1,68 @@
-/* Fondo general de la página */
+/* GENERAL */
 body {
   margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
 }
 
-/* Página de inicio */
+/* NAVBAR */
+.navbar {
+  background-color: #2d6a4f;
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* HOME */
 .home-container {
   height: 100vh;
   background-image: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Capa oscura para mejorar visibilidad del texto */
 .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   padding: 40px;
   border-radius: 10px;
   text-align: center;
 }
 
-/* Título principal */
 .home-title {
   color: white;
   font-size: 40px;
-  margin-bottom: 20px;
 }
 
-/* Botón */
-.start-button {
-  background-color: #2ea32e;
+.home-text {
   color: white;
-  border: none;
+}
+
+.start-button {
+  background: #2ea32e;
+  color: white;
   padding: 12px 25px;
-  font-size: 16px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.start-button:hover {
-  background-color: #248a24;
+/* PRODUCTS */
+.product-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* CART */
+.cart-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
 }
