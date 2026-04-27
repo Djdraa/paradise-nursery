@@ -1,54 +1,56 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { removeItem, updateQuantity } from "../redux/CartSlice";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, removeItem, updateQuantity } from "../redux/CartSlice";
 
-const CartItem = () => {
-  const items = useSelector(state => state.cart.items);
+function CartItem() {
+  const cart = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
-  const total = items.reduce((acc, i) => acc + i.price * i.quantity, 0);
-  const totalItems = items.reduce((acc, i) => acc + i.quantity, 0);
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  const increase = (item) => {
+    dispatch(addItem(item));
+  };
+
+  const decrease = (item) => {
+    if (item.quantity === 1) {
+      dispatch(removeItem(item.id));
+    } else {
+      dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
+    }
+  };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>CARRITO</h1>
+    <div>
+      <h1>Shopping Cart</h1>
 
-      <h2>Total de productos: {totalItems}</h2>
+      <h2>Total Items: {cart.length}</h2>
+      <h2>Total Cost: ${total}</h2>
 
-      {items.map(item => (
-        <div key={item.id} className="cart-item">
-          <p>{item.name}</p>
+      {cart.map((item) => (
+        <div key={item.id}>
+          <img src={item.image} width="100" alt={item.name} />
+          <h3>{item.name}</h3>
           <p>${item.price}</p>
-          <p>Total: ${item.price * item.quantity}</p>
 
-          <button onClick={() =>
-            dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))
-          }>+</button>
-
-          <button onClick={() =>
-            dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }))
-          }>-</button>
+          <button onClick={() => increase(item)}>+</button>
+          <span>{item.quantity}</span>
+          <button onClick={() => decrease(item)}>-</button>
 
           <button onClick={() => dispatch(removeItem(item.id))}>
-            ELIMINAR
+            Eliminar
           </button>
         </div>
       ))}
 
-      <h2>Total carrito: ${total}</h2>
-
       <button onClick={() => alert("Próximamente")}>
-        CHECKOUT
+        Checkout
       </button>
-
-      <br /><br />
-
-      <Link to="/plants">
-        <button>SEGUIR COMPRANDO</button>
-      </Link>
     </div>
   );
-};
+}
 
 export default CartItem;
